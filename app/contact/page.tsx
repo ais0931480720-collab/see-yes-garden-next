@@ -6,16 +6,10 @@ import SiteHeader from "@/components/SiteHeader";
 
 const contactPeople = [
   {
-    name: "Edison",
-    email: "edison@seeyesgarden.com",
-    whatsapp: "+86 15325897927",
+    name: "David",
+    email: "David@seeyesgarden.com",
+    whatsapp: "+86 18006798996",
     department: "All Categories",
-  },
-  {
-    name: "Huan",
-    email: "huan@seeyesgarden.com",
-    whatsapp: "+86 18767505685",
-    department: "Doors & Windows",
   },
   {
     name: "Lisa",
