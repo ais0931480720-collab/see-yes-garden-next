@@ -43,20 +43,12 @@ const salesContacts = [
     initials: "S2",
   },
   {
-    name: "Huan",
+    name: "David",
     role: "Sales Consultant",
-    phone: "+86 18767505685",
-    email: "Huan@seeyesgarden.com",
-    photo: "/images/team/sales-03.jpg",
-    initials: "S3",
-  },
-  {
-    name: "Edison",
-    role: "Sales Consultant",
-    phone: "+86 15325897927",
-    email: "Edison@seeyesgarden.com",
-    photo: "/images/team/sales-04.pic.jpg",
-    initials: "S4",
+    phone: "+86 18006798996",
+    email: "David@seeyesgarden.com",
+    photo: "",
+    initials: "D",
   },
 ];
 
@@ -226,7 +218,7 @@ export default function Home() {
             {salesContacts.map((contact) => (
               <article className="sales-contact-card" key={contact.email}>
                 <div className="sales-avatar" aria-hidden="true">
-                  <img src={contact.photo} alt="" />
+                  {contact.photo ? <img src={contact.photo} alt="" /> : null}
                   <span>{contact.initials}</span>
                 </div>
                 <h3>{contact.name}</h3>
