@@ -4,7 +4,7 @@ export function ReadyProjectCta() {
       <h2>Ready to Start Your Project?</h2>
       <p>Send us your product requirements and get a factory quotation today.</p>
       <div className="contact-actions">
-        <a className="primary-btn" href="">
+        <a className="primary-btn" href="mailto:Lisa@seeyesgarden.com?subject=Website%20Inquiry">
           Submit Inquiry
         </a>
         <a className="secondary-btn" href="https://wa.me/8615325897927">
