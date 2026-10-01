@@ -17,7 +17,7 @@ const productOptions = [
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "success">("idle");
   const [message, setMessage] = useState("");
   const [fileName, setFileName] = useState("");
   const product = searchParams.get("product");
@@ -35,33 +35,47 @@ export default function ContactForm() {
           .join("\n")
       : "");
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setStatus("sending");
-    setMessage("");
 
-    const form = event.currentTarget;
-    const formData = new FormData(form);
+    const formData = new FormData(event.currentTarget);
+    const value = (name: string) => String(formData.get(name) || "Not specified");
+    const attachment = formData.get("attachment");
+    const attachmentName =
+      attachment instanceof File && attachment.name ? attachment.name : "None";
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        body: formData,
-      });
-      const result = await response.json();
+    const subject = encodeURIComponent(
+      `Website inquiry: ${value("productCategory")}`,
+    );
+    const body = encodeURIComponent(
+      [
+        "New website inquiry",
+        "",
+        `Name: ${value("name")}`,
+        `Email: ${value("email")}`,
+        `WhatsApp / Phone: ${value("phone")}`,
+        `Country: ${value("country")}`,
+        `Product Category: ${value("productCategory")}`,
+        `Quantity: ${value("quantity")}`,
+        "",
+        "Message:",
+        value("message"),
+        "",
+        `Selected file: ${attachmentName}`,
+        attachmentName === "None"
+          ? ""
+          : "Please attach this file manually before sending the email.",
+      ]
+        .filter(Boolean)
+        .join("\n"),
+    );
 
-      if (!response.ok) {
-        throw new Error(result.message || "Submit failed.");
-      }
-
-      setStatus("success");
-      setMessage("Thanks. Your inquiry has been submitted. Our factory team will reply soon.");
-      form.reset();
-      setFileName("");
-    } catch (error) {
-      setStatus("error");
-      setMessage(error instanceof Error ? error.message : "Submit failed. Please try again.");
-    }
+    window.location.href =
+      `mailto:Lisa@seeyesgarden.com?subject=${subject}&body=${body}`;
+    setStatus("success");
+    setMessage(
+      "Your email app has opened. Please review and send the inquiry to Lisa.",
+    );
   }
 
   return (
@@ -123,10 +137,10 @@ export default function ContactForm() {
         />
         <em>{fileName ? "File Selected" : "Upload File"}</em>
         <strong>Upload Drawing / Reference Image</strong>
-        <span>{fileName || "Click to upload or drag and drop JPG, PNG, PDF. Max 20MB"}</span>
+        <span>{fileName || "Click to select JPG, PNG, PDF, DWG or DXF"}</span>
       </label>
-      <button className="submit-btn" disabled={status === "sending"} type="submit">
-        {status === "sending" ? "Submitting..." : "Submit Inquiry"}
+      <button className="submit-btn" type="submit">
+        Submit Inquiry
       </button>
       {message ? <p className={`form-status ${status}`}>{message}</p> : null}
     </form>
