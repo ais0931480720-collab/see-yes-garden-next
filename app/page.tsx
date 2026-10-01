@@ -62,7 +62,7 @@ export default function Home() {
       <section className="section about-section" id="about">
         <div className="about-media">
           <iframe
-            src="https://drive.google.com/file/d/1oKFqUjKhz_OItQqaus8pf2QhYieyG_S1/preview"
+            src="https://drive.google.com/file/d/10jjPDf1kJGy7NeWApRSV4Q-mEtQbspSn/preview"
             title="SeeYes Garden factory video"
             allow="autoplay; fullscreen"
             allowFullScreen
