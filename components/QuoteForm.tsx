@@ -35,33 +35,25 @@ export default function QuoteForm({
   const [message, setMessage] = useState("");
   const [fileName, setFileName] = useState("");
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setStatus("sending");
-    setMessage("");
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        body: formData,
-      });
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.message || "Submit failed.");
-      }
-
-      setStatus("success");
-      setMessage("Thanks. Your custom request has been sent. Our factory team will reply soon.");
-      form.reset();
-      setFileName("");
-    } catch (error) {
-      setStatus("error");
-      setMessage(error instanceof Error ? error.message : "Submit failed. Please try again.");
-    }
+    const formData = new FormData(event.currentTarget);
+    const values = (name: string) => formData.getAll(name).map(String).filter(Boolean).join(", ") || "Not specified";
+    const value = (name: string) => String(formData.get(name) || "Not specified");
+    const attachment = formData.get("attachment");
+    const attachmentName = attachment instanceof File && attachment.name ? attachment.name : "None";
+    const subject = encodeURIComponent("Website Custom Request");
+    const body = encodeURIComponent([
+      "New website custom request", "",
+      `Name: ${value("name")}`, `Email: ${value("email")}`, `WhatsApp: ${value("phone")}`,
+      `Product Type: ${values("productType")}`, `Customization: ${values("customization")}`,
+      `Material: ${value("materialPreference")}`, `Country / Market: ${value("country")}`,
+      `Order Quantity: ${value("quantity")}`, `Message: ${value("message")}`,
+      `Selected file: ${attachmentName} (please attach it manually before sending)`,
+    ].join("\n"));
+    window.location.href = `mailto:Lisa@seeyesgarden.com?subject=${subject}&body=${body}`;
+    setStatus("success");
+    setMessage("Your email app has opened. Please review and send the inquiry to Lisa.");
   }
 
   return (
