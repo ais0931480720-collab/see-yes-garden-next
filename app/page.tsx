@@ -223,7 +223,7 @@ export default function Home() {
                 </div>
                 <h3>{contact.name}</h3>
                 <p>{contact.role}</p>
-                <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>
+                <a href={`replace(/\D/g, "")${contact.phone.https://wa.me/}`}>{contact.phone}</a>
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
               </article>
             ))}
