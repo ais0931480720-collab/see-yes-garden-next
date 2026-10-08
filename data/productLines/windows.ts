@@ -162,4 +162,132 @@ export const windowProducts: ProductItem[] = [
       },
     ],
   },
+{
+    slug: "c",
+    title: "ce",
+    category: "Aluminum Window",
+    template: "standard",
+    subtitle: "sef for outdoor projects and wholesale supply.",
+    description: "11",
+    image: "/images/products/aluminum-window/c/product-card/card.png",
+    gallery: [
+      "/images/products/aluminum-window/c/detail-carousel/01-11681756781148-pic.jpg",
+      "/images/products/aluminum-window/c/detail-carousel/02-24311768098071-pic.jpg",
+      "/images/products/aluminum-window/c/detail-carousel/03-25531769220058-pic.jpg",
+      "/images/products/aluminum-window/c/detail-carousel/04-26691770286129-pic.jpg",
+    ],
+    highlights: [
+      "Aluminum",
+      "333 x 333 x 333 cm",
+      "33",
+      "OEM & ODM support",
+    ],
+    applications: [
+      "Residential",
+      "Commercial & Hospitality",
+    ],
+    materials: [
+      "Aluminum",
+      "Glass",
+    ],
+    customization: [
+      "Custom Size",
+      "Custom Color",
+      "Packaging",
+    ],
+    oemSupport: [
+      "Private Label",
+      "Packaging",
+      "Sample Development",
+    ],
+    cardModel: "sef",
+    cardSize: "333 x 333 x 333 cm",
+    cardCbm: "0.0359 m³",
+    moq: "33",
+    grossWeight: "33",
+    netWeight: "33",
+    packing: "33",
+    status: "published",
+    productDescription: [
+      [
+        "Item Number",
+        "sef",
+      ],
+      [
+        "Product Name",
+        "ce",
+      ],
+      [
+        "Material",
+        "Aluminum / Glass",
+      ],
+      [
+        "Overall Size",
+        "333 x 333 x 333 cm or Customized",
+      ],
+      [
+        "Color",
+        "Customized",
+      ],
+      [
+        "Packing",
+        "33",
+      ],
+      [
+        "MOQ",
+        "33",
+      ],
+      [
+        "Gross Weight",
+        "33 kg",
+      ],
+      [
+        "Net Weight",
+        "33 kg",
+      ],
+      [
+        "CBM",
+        "0.0359 m³",
+      ],
+    ],
+    faqs: [
+      [
+        "Can I customize the size?",
+        "Yes. Send us your required length, width, height or technical drawing, and we can prepare a custom aluminum window plan.",
+      ],
+      [
+        "Can I choose the color and finish?",
+        "Yes. Color, surface finish and product details can be selected according to your market needs.",
+      ],
+      [
+        "Do you support OEM packaging?",
+        "Yes. We can support neutral packing, branded labels, instruction sheets, cartons and retail packaging for bulk orders.",
+      ],
+      [
+        "What information is needed for quotation?",
+        "Please provide size, quantity, destination country, material preference, finish color and any reference image or drawing.",
+      ],
+      [
+        "Can you supply for project orders?",
+        "Yes. We support retail, residential and project supply with production coordination, packing and export delivery.",
+      ],
+    ],
+    relatedProducts: [
+      {
+        title: "Steel Door SED-C1256W",
+        image: "/images/products/entry-door/sed-c1256w/product-card/card.webp",
+        slug: "sed-c1256w",
+      },
+      {
+        title: "Pivot Door SED-01",
+        image: "/images/products/entry-door/pivot-door-SED-01/product-card/card2.webp",
+        slug: "pivot-door-sed-01",
+      },
+      {
+        title: "Pivot-SED-P-5890",
+        image: "/images/products/entry-door/pivot-door-p5890/product-card/card.webp",
+        slug: "pivot-door-p5890",
+      },
+    ],
+  },
 ];
